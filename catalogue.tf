@@ -15,8 +15,8 @@ resource "aws_instance" "catalogue" {
       host= self.private_ip
     }
     inline = {
-      "sudo pip3.11 install ansible",
-      "ansible-pull -i localhost, -u https://github.com/Thippareddygari/ansible-shop.git shop.yml -e component_name=catalogue -e env=dev",
+      "pip3.11 install ansible",
+      "ansible-pull -i localhost, -U https://github.com/Thippareddygari/ansible-shop shop.yml -e component_name=catalogue -e env=dev",
     }
   }
 }
