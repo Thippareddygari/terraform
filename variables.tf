@@ -7,7 +7,11 @@ variable "instance_type" {
 }
 
 variable "instances" {
-  default = ["catalogue","mongodb","frontend"]
+  default = {
+    catalogue= null
+    mongodb= null
+    frontend= null
+  }
 }
 
 variable "zone_id" {
