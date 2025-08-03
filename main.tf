@@ -1,8 +1,8 @@
 resource "aws_instance" "instance" {
   //count = length(var.instances)
   for_each = var.instances
-  ami = each.value[ami_id]
-  instance_type = each.value[instance_type]
+  ami = each.value["ami_id"]
+  instance_type = each.value["instance_type"]
   vpc_security_group_ids = ["sg-0930eb7aaaf6a5468"]  
 
   tags = {
