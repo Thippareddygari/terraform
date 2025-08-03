@@ -1,3 +1,3 @@
 output "resource_count" {
-  value = module.null-resources
+  value = module.resource-count.resource-count
 }
