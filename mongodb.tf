@@ -7,3 +7,11 @@ resource "aws_instance" "mongodb" {
     Name = "mongodb"
   }
 }
+
+resource "aws_route53_record" "mongodb" {
+  zone_id = "Z10310253KPZLFJOC7YEK"
+  type = "A"
+  name = "mongodb-dev"
+  ttl = 300
+  records = [aws_instance.mongodb.private_ip]
+}
