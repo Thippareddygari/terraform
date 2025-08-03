@@ -9,3 +9,11 @@ variable "instance_type" {
 variable "instances" {
   default = ["catalogue","frontend","mongodb"]
 }
+
+variable "zone_id" {
+  default = "Z10310253KPZLFJOC7YEK"
+}
+
+variable "env" {
+  default = "dev"
+}
