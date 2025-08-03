@@ -24,7 +24,7 @@ resource "null_resource" "catalogue" {
       type = "ssh"
       user = "ec2-user"
       password = "DevOps321"
-      host= self.private_ip
+      host= aws_instance.catalogue.private_ip
     }
     inline = [
       "pip3.11 install ansible",
