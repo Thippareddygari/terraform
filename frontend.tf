@@ -15,7 +15,7 @@ resource "aws_instance" "frontend" {
     }
         inline = [
             "pip3.11 install ansible",
-            "ansible-pull -i localhost, -U  https://github.com/Thippareddygari/ansible-shop shop.yml -e component_name=frontend -e env=dev",
+            "ansible-pull -i localhost, -U  https://github.com/Thippareddygari/ansible-shop shop.yml -e component_name=frontend -e env=dev"
 }
 
 resource "aws_route53_record" "frontend" {

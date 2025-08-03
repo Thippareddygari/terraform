@@ -16,8 +16,8 @@ resource "aws_instance" "catalogue" {
     }
     inline = {
       "pip3.11 install ansible",
-      "ansible-pull -i localhost, -U https://github.com/Thippareddygari/ansible-shop shop.yml -e component_name=catalogue -e env=dev",
-    }
+      "ansible-pull -i localhost, -U https://github.com/Thippareddygari/ansible-shop shop.yml -e component_name=catalogue -e env=dev"
+     }
   }
 }
 
