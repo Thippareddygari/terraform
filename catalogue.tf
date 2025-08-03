@@ -7,8 +7,20 @@ resource "aws_instance" "catalogue" {
     Name = "catalogue"
   }
 
+}
+
+resource "aws_route53_record" "catalogue" {
+  zone_id = "Z10310253KPZLFJOC7YEK"
+  type = "A"
+  name = "catalogue-dev"
+  ttl = 300
+  records= [aws_instance.catalogue.private_ip]
+}
+
+
+resource "null_resource" "catalogue" {
   provisioner "remote-exec" {
-    connection {
+  connection {
       type = "ssh"
       user = "ec2-user"
       password = "DevOps321"
@@ -19,12 +31,5 @@ resource "aws_instance" "catalogue" {
       "ansible-pull -i localhost, -U https://github.com/Thippareddygari/ansible-shop shop.yml -e component_name=catalogue -e env=dev",
     ]
   }
-}
-
-resource "aws_route53_record" "catalogue" {
-  zone_id = "Z10310253KPZLFJOC7YEK"
-  type = "A"
-  name = "catalogue-dev"
-  ttl = 300
-  records= [aws_instance.catalogue.private_ip]
+  }
 }

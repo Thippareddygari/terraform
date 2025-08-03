@@ -6,7 +6,17 @@ resource "aws_instance" "mongodb" {
   tags = {
     Name = "mongodb"
   }
+}
 
+resource "aws_route53_record" "mongodb" {
+  zone_id = "Z10310253KPZLFJOC7YEK"
+  type = "A"
+  name = "mongodb-dev"
+  ttl = 300
+  records = [aws_instance.mongodb.private_ip]
+}
+
+resource "null_resource" "mongodb" {
   provisioner "remote-exec" {
     connection {
       type = "ssh"
@@ -19,12 +29,4 @@ resource "aws_instance" "mongodb" {
       "ansible-pull -i localhost, -U https://github.com/Thippareddygari/ansible-shop shop.yml -e component_name=mongodb -e env=dev",
     ]
   }
-}
-
-resource "aws_route53_record" "mongodb" {
-  zone_id = "Z10310253KPZLFJOC7YEK"
-  type = "A"
-  name = "mongodb-dev"
-  ttl = 300
-  records = [aws_instance.mongodb.private_ip]
 }

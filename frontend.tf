@@ -5,18 +5,7 @@ resource "aws_instance" "frontend" {
     tags = {
       Name = "frontend"
     }
-    provisioner "remote-exec" {
-        connection {
-            type = "ssh"
-            user = "ec2-user"
-            password = "DevOps321"
-            host = self.private_ip
-      
-    }
-        inline = [
-            "pip3.11 install ansible",
-            "ansible-pull -i localhost, -U  https://github.com/Thippareddygari/ansible-shop shop.yml -e component_name=frontend -e env=dev",
-        ]
+    
 }
 }
 
@@ -26,4 +15,20 @@ resource "aws_route53_record" "frontend" {
   type = "A"
   ttl = 300
   records = [aws_instance.frontend.private_ip]
+}
+
+resource "null_resource" "frontend" {
+  provisioner "remote-exec" {
+        connection {
+            type = "ssh"
+            user = "ec2-user"
+            password = "DevOps321"
+            host = aws_instance.frontend.private_ip
+      
+    }
+        inline = [
+            "pip3.11 install ansible",
+            "ansible-pull -i localhost, -U  https://github.com/Thippareddygari/ansible-shop shop.yml -e component_name=frontend -e env=dev",
+        ]
+  }
 }
