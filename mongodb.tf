@@ -6,6 +6,17 @@ resource "aws_instance" "mongodb" {
   tags = {
     Name = "mongodb"
   }
+
+  provisioner "remote-exec" {
+    connection {
+      type = "ssh"
+      user = "ec2-user"
+      password = "DevOps321"
+      host = self.private_ip
+    }
+    inline = [
+      "sudo pip3.11 install ansible",
+      "ansible-pull -i localhost, -u https://github.com/Thippareddygari/ansible-shop.git shop.yml -e component_name=mongodb -e env=dev",
 }
 
 resource "aws_route53_record" "mongodb" {
