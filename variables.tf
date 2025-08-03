@@ -6,3 +6,6 @@ variable "instance_type" {
     default = "t2.micro"
 }
 
+variable "instances" {
+  default = ["catalogue","frontend","mongodb"]
+}
