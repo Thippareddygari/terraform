@@ -10,6 +10,5 @@ variable "x" {
   default = {
     j = 200
     i = 100
-
   }
 }

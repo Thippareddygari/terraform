@@ -1,16 +1,17 @@
-variable "ami_id" {
-    default = "ami-09c813fb71547fc4f"
-    }
-
-variable "instance_type" {
-    default = "t2.micro"
-}
-
 variable "instances" {
   default = {
-    catalogue= null
-    mongodb= null
-    frontend= null
+    catalogue= {
+        ami_id = "ami-09c813fb71547fc4f"
+        instance_type="t3.micro"
+    }
+    mongodb= {
+        ami_id = "ami-09c813fb71547fc4f"
+        instance_type= "t3.micro"
+    }
+    frontend= {
+        ami_id="ami-09c813fb71547fc4f"
+        instance_type= "t3.micro"
+    }
   }
 }
 
