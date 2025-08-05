@@ -19,6 +19,10 @@ variable "zone_id" {
   default = "Z10310253KPZLFJOC7YEK"
 }
 
+variable "vpc_security_group_ids" {
+  default = ["sgr-06d8113d2107fd620"]
+}
+
 variable "env" {
   default = "dev"
 }
