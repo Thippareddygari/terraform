@@ -1,7 +1,8 @@
 module "ec2" {
   for_each = var.instances
+  
   source = "./modules/ec2"
-  ami = each.value["ami_id"]
+  ami_id = each.value["ami_id"]
   instance_type = each.value["instance_type"]
   name = each.key
   vpc_security_group_ids = var.vpc_security_group_ids
