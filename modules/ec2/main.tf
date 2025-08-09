@@ -23,17 +23,17 @@ resource "aws_route53_record" "record" {
 }
 
 
-# resource "null_resource" "catalogue" {
-#   provisioner "remote-exec" {
-#   connection {
-#       type = "ssh"
-#       user = "ec2-user"
-#       password = "DevOps321"
-#       host= aws_instance.catalogue.private_ip
-#     }
-#     inline = [
-#       "pip3.11 install ansible",
-#       "ansible-pull -i localhost, -U https://github.com/Thippareddygari/ansible-shop shop.yml -e component_name=catalogue -e env=dev",
-#     ]
-#   }
-#   }
+resource "null_resource" "catalogue" {
+  provisioner "remote-exec" {
+  connection {
+      type = "ssh"
+      user = data.vault_generic_secret.ssh.data["username"]
+      password = data.vault_generic_secret.ssh.data["password"]
+      host= aws_instance.instance.private_ip
+    }
+    inline = [
+      "pip3.11 install ansible",
+      "ansible-pull -i localhost, -U https://github.com/Thippareddygari/ansible-shop shop.yml -e component_name=${var.name} -e env=${var.env}",
+    ]
+  }
+  }
