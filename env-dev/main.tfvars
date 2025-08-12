@@ -1,45 +1,55 @@
 instances = {
-    # catalogue= {
-    #     ami_id = "ami-09c813fb71547fc4f"
-    #     instance_type="t3.micro"
-    # }
-    # mongodb= {
-    #     ami_id = "ami-09c813fb71547fc4f"
-    #     instance_type= "t3.micro"
-    # }
-    # frontend= {
-    #     ami_id="ami-09c813fb71547fc4f"
-    #     instance_type= "t3.micro"
-    # }
-
-    # redis= {
-    #      ami_id="ami-09c813fb71547fc4f"
-    #     instance_type= "t3.micro"
-    # }
-    cart={
-         ami_id="ami-09c813fb71547fc4f"
-        instance_type= "t3.micro"
+    catalogue= {
+        ami_id = "ami-09c813fb71547fc4f"
+        instance_type="t3.micro"
+        ansible_role= "catalogue-docker"
     }
-    # user={
-    #      ami_id="ami-09c813fb71547fc4f"
-    #     instance_type= "t3.micro"
-    # }
-    # shpping={
-    #      ami_id="ami-09c813fb71547fc4f"
-    #     instance_type= "t3.micro"
-    # }
-    # mysql={
-    #      ami_id="ami-09c813fb71547fc4f"
-    #     instance_type= "t3.micro"
-    # }
-    # rabbitmq={
-    #      ami_id="ami-09c813fb71547fc4f"
-    #     instance_type= "t3.micro"
-    # }
-    # payment={
-    #      ami_id="ami-09c813fb71547fc4f"
-    #     instance_type= "t3.micro"
-    # }
+    mongodb= {
+        ami_id = "ami-09c813fb71547fc4f"
+        instance_type= "t3.micro"
+        
+    }
+    frontend= {
+        ami_id="ami-09c813fb71547fc4f"
+        instance_type= "t3.micro"
+        ansible_role= "fronted-docker"
+    }
+
+    redis= {
+        ami_id="ami-09c813fb71547fc4f"
+        instance_type= "t3.micro"
+        
+    }
+    cart={
+        ami_id="ami-09c813fb71547fc4f"
+        instance_type= "t3.micro"
+        ansible_role= "cart-docker"
+    }
+    user={
+        ami_id="ami-09c813fb71547fc4f"
+        instance_type= "t3.micro"
+        ansible_role= "user-docker"
+    }
+    shpping={
+        ami_id="ami-09c813fb71547fc4f"
+        instance_type= "t3.micro"
+        ansible_role= "shipping-docker"
+    }
+    mysql={
+        ami_id="ami-09c813fb71547fc4f"
+        instance_type= "t3.micro"
+        
+    }
+    rabbitmq={
+        ami_id="ami-09c813fb71547fc4f"
+        instance_type= "t3.micro"
+        ansible_role= "rabbitmq-docker"
+    }
+    payment={
+        ami_id="ami-09c813fb71547fc4f"
+        instance_type= "t3.micro"
+        
+    }
   }
 
 zone_id= "Z10310253KPZLFJOC7YEK"

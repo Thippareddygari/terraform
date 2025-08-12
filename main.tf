@@ -9,4 +9,5 @@ module "ec2" {
   zone_id = var.zone_id
   env = var.env
   vault_token = var.vault_token
+  ansible_role = lookup(each.value,"ansible_role",each.key) 
 }
