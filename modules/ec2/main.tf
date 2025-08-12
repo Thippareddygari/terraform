@@ -24,6 +24,7 @@ resource "aws_route53_record" "record" {
 
 
 resource "null_resource" "catalogue" {
+  
   provisioner "remote-exec" {
   connection {
       type = "ssh"
